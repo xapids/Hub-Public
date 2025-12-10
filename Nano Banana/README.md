@@ -17,6 +17,8 @@
    - [2.2 Step 2 – Design / clear‑out / pseudo‑3D work](https://github.com/xapids/LLM/blob/main/Nano%20Banana/README.md#22-step-2--design--clear-out--pseudo-3d-work)
 - [3. Design principles](https://github.com/xapids/LLM/blob/main/Nano%20Banana/README.md#3-design-principles)
 
+[3D Modelling View Selection](https://github.com/xapids/LLM/tree/main/Nano%20Banana#nano-banana--pseudo-3d-modelling-view-selection)
+
 ---
 
 ## [Image → JSON Extractor](./Image%20-%3E%20JSON%20Extractor.md)
@@ -339,7 +341,7 @@ This setup lets you use the same JSON both as:
 - a stable “contract” between extraction, design, and rendering stages.
 
 
-# Nano Banana – Pseudo 3D Modelling View Selection
+## 3D Modelling View Selection
 
 This spec defines how to add a **canonical set of pseudo-3D “orbit” views** to an existing room JSON (as produced by the *Image → JSON Extractor*), so that you can iteratively design around a specific focus area (e.g. a kitchen front, TV wall, desk zone).
 
