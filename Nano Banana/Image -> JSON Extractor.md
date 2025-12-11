@@ -161,34 +161,7 @@ Place cameras and elements so that:
 VIEWS
 --------------------------------------------------
 
-For each reference image:
-
-1) Create a "views" entry.
-
-2) cam.rel:
-
-   - "corner" if the camera is clearly near the intersection of two walls.  
-   - "wall"   if the camera is clearly along one main wall.  
-   - "free"   otherwise (somewhere inside the room).
-
-3) cam.w1 and cam.w2:
-
-   - cam.w1: id of the main wall the camera is associated with, or null.  
-   - cam.w2: second wall for a corner camera (the other wall meeting at the corner), or null.
-
-4) cam.xy:
-
-   - Approximate floor position of the camera centre in the normalised footprint coordinates.  
-   - Use the floor plan + your understanding of the views.
-
-5) cam.h:
-
-   - Camera height above floor (m).  
-   - Usually about 1.4–1.7 for eye-level interior photos; default ~1.6 if uncertain.
-
-The "views" array defines the cameras for this room.
-
-Each entry is a camera definition:
+The "views" array defines the cameras for this room. Each entry is a camera definition:
 
 * "id": string – unique view id, e.g. "v_ref_1", "v_kit1_front".
 * "ref": string – which input image this view was derived from (for reference images) or a synthetic label (for generated views).
@@ -199,15 +172,32 @@ Each entry is a camera definition:
   * "xy": [x, y] in [0,1]×[0,1] – camera position in the floor-plan coordinate system.
   * "h": number – camera height in metres above floor.
 
-IMPORTANT:
+For each reference image you must:
 
-* Every view in "views" is treated as a **requested render** for this JSON.
-* Downstream, before calling Nano Banana, you may delete any views you do not want to render on that call.
-* There is **no separate "render" block**. The contract is:
+1. Create a "views" entry.
 
-  * “If a view is listed in `views`, Nano Banana is allowed (and expected) to render it.”
-  * “If a view is not listed, it is out of scope for this JSON.”
+2. Set cam.rel:
 
+   * "corner" if the camera is clearly near the intersection of two walls.
+   * "wall"   if the camera is clearly along one main wall.
+   * "free"   otherwise (somewhere inside the room).
+
+3. Set cam.w1 and cam.w2:
+
+   * cam.w1: id of the main wall the camera is associated with, or null.
+   * cam.w2: second wall for a corner camera (the other wall meeting at the corner), or null.
+
+4. Set cam.xy:
+
+   * Approximate floor position of the camera centre in the normalised footprint coordinates.
+   * Use the floor plan plus your understanding of the views.
+
+5. Set cam.h:
+
+   * Camera height above floor (m).
+   * Usually about 1.4–1.7 for eye-level interior photos; default ~1.6 if uncertain.
+
+Every view in "views" is a concrete camera position that Nano Banana can render from. Before a render call you may delete any views you do not want to use on that call.
 
 --------------------------------------------------
 ELEMENTS
