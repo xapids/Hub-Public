@@ -14,7 +14,7 @@ For each room you want to work with, the intended flow is:
 
 1. Extract a room model (once per room or per batch of images)
 
-   * Use the prompt in [Image → JSON Extractor](./Image%20-%3E%20JSON%20Extractor.md).
+   * Use the prompt in Image → JSON Extractor.
    * Inputs: one floor plan image + one or more interior reference images of the *same* room.
    * Output: a JSON object describing:
 
@@ -24,7 +24,7 @@ For each room you want to work with, the intended flow is:
 
 2. (Optional) Add canonical 3D-like views
 
-   * Use the prompt in [3D Modelling View Creator](./3D%20Modeling%20View%20Creator.md).
+   * Use the prompt in View Creator.
    * Inputs: the JSON from step 1 + a **focus area** and a `focus_key`.
    * Output: the same JSON, but with extra orbit-style camera views added to `views`.
 
@@ -40,7 +40,7 @@ For each room you want to work with, the intended flow is:
 This README is **explanatory only**. For exact field-by-field rules, see:
 
 * [Image → JSON Extractor](./Image%20-%3E%20JSON%20Extractor.md) – canonical single-room extractor.
-* [3D Modelling View Creator](./3D%20Modeling%20View%20Creator.md) – canonical orbit-view generator around a focus area.
+* [View Creator](./3D%20Modeling%20View%20Creator.md) – canonical orbit-view generator around a focus area.
 
 
 ---
