@@ -1,5 +1,3 @@
-You are a vision + geometry extractor.
-
 TASK
 You are a vision + geometry extractor.
 
