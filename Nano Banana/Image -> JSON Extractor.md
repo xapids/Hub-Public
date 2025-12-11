@@ -59,7 +59,7 @@ From the floor plan and interior reference photos of a SINGLE room, output ONLY 
   "views": [
     {
       "id": string,
-      "ref": string,
+      "ref": string | null,
       "cam": {
         "rel": "corner" | "wall" | "free",
         "w1": string | null,
@@ -164,7 +164,7 @@ VIEWS
 The "views" array defines the cameras for this room. Each entry is a camera definition:
 
 * "id": string – unique view id, e.g. "v_ref_1", "v_kit1_front".
-* "ref": string – which input image this view was derived from (for reference images) or a synthetic label (for generated views).
+- "ref": string | null – id of the source reference image (for views tied to an input photo), or null for synthetic views (e.g. orbit cameras).
 * "cam":
 
   * "rel": "corner" | "wall" | "free" – how the camera position is anchored.
