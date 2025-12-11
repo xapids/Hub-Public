@@ -37,11 +37,6 @@ For each room you want to work with, the intended flow is:
      * the full `space` and `elems`, but
      * only a small subset of `views` corresponding to shots you want now.
 
-There is **no separate "render" section**. The rule is:
-
-* If a view is present in `views`, Nano Banana treats it as a requested render.
-* If a view is not present, it is ignored.
-
 This README is **explanatory only**. For exact field-by-field rules, see:
 
 * [Image → JSON Extractor](./Image%20-%3E%20JSON%20Extractor.md) – canonical single-room extractor.
@@ -66,7 +61,7 @@ The JSON has six main parts:
 1.2 `proj` – project metadata.  
 1.3 `media` – input image filenames.  
 1.4 `space` – room geometry (footprint and walls).  
-1.5 `views` – camera positions for each reference image (and later, render views).  
+1.5 `views` – camera positions for each reference image / render.  
 1.6 `elems` – all room elements (floor, walls, windows, furniture, appliances, clutter).  
 
 Very compact, but enough for coherent geometry and repeated render passes.
@@ -198,7 +193,7 @@ This gives Nano Banana a reusable, explicit floor shape + wall segmentation, rat
 ]
 ```
 
-- `id`: view id used elsewhere (`render.outs[*].from`).  
+- `id`: view id.  
 - `ref`: which `media.refs[*].id` this view corresponds to (for reference images).  
 - `cam`:
   - `rel`: `"corner"`, `"wall"`, or `"free"` – qualitative camera placement.  
