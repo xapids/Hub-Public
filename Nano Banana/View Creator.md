@@ -8,7 +8,7 @@ Given an existing SINGLE-ROOM JSON and a user-defined focus area, you add a smal
 You ONLY update:
 - the "views" array (add or update v_<focus_key>_front/left/right/over)
 
-Do NOT remove or rename existing views or renders unless explicitly requested.
+Do NOT remove or rename existing views unless explicitly requested.
 
 --------------------------------------------------
 INPUT
