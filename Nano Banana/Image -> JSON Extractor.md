@@ -143,6 +143,11 @@ GEOMETRY & WALL ORDERING
 
 6) Set "space.geom.H" to the approximate room height (e.g. 2.6).
 
+7) Define "space.geom.orientation":
+   - Determine the logical "front" of the room (usually facing the main window or the main activity wall).
+   - Output one string: "+x", "-x", "+y", or "-y".
+   - This tells downstream tools which direction in the normalised plan is "forward".
+
 --------------------------------------------------
 FLOOR COORDINATES (xy)
 --------------------------------------------------
