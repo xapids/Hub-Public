@@ -301,30 +301,6 @@ For each visible, relevant element (windows, doors, counters, tables, appliances
      - If rm=false: null.
 
 --------------------------------------------------
-RENDER BLOCK
---------------------------------------------------
-
-"render" describes how to turn this room model into one or more render outputs.
-
-- "outs":
-  - Each entry is one requested output:
-    {
-      "id": "r1",
-      "from": "v1",
-      "lens": { "t": "wide", "f": 18, "fov": 90 }
-    }
-  - "from": id of the corresponding view.  
-  - "lens": camera / lens settings (type string, focal length mm, approximate field of view degrees).
-
-- "rules":
-  - "keep_cat": list of categories to keep.  
-  - "rm_cat": list of categories to remove.  
-  - Example for a simple clear-out render:
-    - "keep_cat": ["arch", "open", "fix"]  
-    - "rm_cat":   ["furn", "appl", "dec", "grp"]
-
-
---------------------------------------------------
 OUTPUT FORMAT
 --------------------------------------------------
 
