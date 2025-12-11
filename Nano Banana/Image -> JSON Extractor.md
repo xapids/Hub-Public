@@ -94,25 +94,7 @@ From the floor plan and interior reference photos of a SINGLE room, output ONLY 
       "rm": boolean,
       "repl": string | null
     }
-  ],
-
-  "render": {
-    "outs": [
-      {
-        "id": string,
-        "from": string,
-        "lens": {
-          "t": string,
-          "f": number,
-          "fov": number
-        }
-      }
-    ],
-    "rules": {
-      "keep_cat": [string],
-      "rm_cat": [string]
-    }
-  }
+  ]
 }
 
 --------------------------------------------------
@@ -176,7 +158,7 @@ Place cameras and elements so that:
 - The relative distances and proportions roughly match what you infer from the floor plan.
 
 --------------------------------------------------
-CAMERAS
+VIEWS
 --------------------------------------------------
 
 For each reference image:
@@ -203,6 +185,29 @@ For each reference image:
 
    - Camera height above floor (m).  
    - Usually about 1.4–1.7 for eye-level interior photos; default ~1.6 if uncertain.
+
+The "views" array defines the cameras for this room.
+
+Each entry is a camera definition:
+
+* "id": string – unique view id, e.g. "v_ref_1", "v_kit1_front".
+* "ref": string – which input image this view was derived from (for reference images) or a synthetic label (for generated views).
+* "cam":
+
+  * "rel": "corner" | "wall" | "free" – how the camera position is anchored.
+  * "w1", "w2": wall ids or null (for "free" cameras).
+  * "xy": [x, y] in [0,1]×[0,1] – camera position in the floor-plan coordinate system.
+  * "h": number – camera height in metres above floor.
+
+IMPORTANT:
+
+* Every view in "views" is treated as a **requested render** for this JSON.
+* Downstream, before calling Nano Banana, you may delete any views you do not want to render on that call.
+* There is **no separate "render" block**. The contract is:
+
+  * “If a view is listed in `views`, Nano Banana is allowed (and expected) to render it.”
+  * “If a view is not listed, it is out of scope for this JSON.”
+
 
 --------------------------------------------------
 ELEMENTS
