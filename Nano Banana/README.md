@@ -30,9 +30,6 @@ For each room you want to work with, the intended flow is:
    * Inputs: the JSON from step 1 + a **focus area** and a `focus_key`.
    * Output: the same JSON, but with extra orbit-style camera views added to `views`.
 
-   * **Manual Verification (Required):**
-     * **Void Check:** If the room is non-rectangular (L-shaped), check that the new camera `xy` coordinates do not fall into "void" space outside the walls.
-
 3. Before each Nano Banana call, prune views to control outputs and tokens
 
    * Decide which camera ids you actually want images for on this call.
