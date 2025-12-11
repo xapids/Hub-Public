@@ -21,7 +21,7 @@ For each room you want to work with, the intended flow is:
      * camera positions (`views`).
 
    * **Manual Verification (Required):**
-     * **Height:** The extractor estimates `space.geom.H`. You **must** manually replace this with the exact physical ceiling height (e.g., `3.0`).
+     * **Height:** The extractor estimates `space.geom.H`. You **must** manually replace this with the exact physical ceiling height (e.g., `3.0` = 3 meters).
      * **Geometry:** Check `space.geom.pts`. If the room is L-shaped or complex, ensure the polygon shape matches reality.
 
 2. (Optional) Add canonical 3D-like views
