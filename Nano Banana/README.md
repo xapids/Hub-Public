@@ -1,7 +1,5 @@
 # README
 
-# README
-
 This folder defines the JSON contracts that Nano Banana uses to work with a **single room at a time**. The JSON is an LLM-facing job description: Nano Banana reads it, and the render engine uses it to create images.
 
 It is intentionally **per-room**, not a whole-house schema.
@@ -20,7 +18,7 @@ For each room you want to work with, the intended flow is:
 
      * room geometry (`space`),
      * contents (`elems` with `rm` / `repl` flags),
-     * candidate camera positions (`views`).
+     * camera positions (`views`).
 
 2. (Optional) Add canonical 3D-like views
 
@@ -299,20 +297,22 @@ This JSON is now your **room model**.
 In a new Nano Banana chat:
 
 1. Provide:
-   - The room JSON from step 1.  
-   - Any subset of the original reference images you want to stay aligned with.
+
+   * The room JSON from step 1.
+   * Any subset of the original reference images you want to stay aligned with.
 
 2. Ask for changes in terms of this model, for example:
 
-   - “Add a kitchen front along wall w2, under window win_1, about 2 m long.”  
-   - “Remove all elems with cat in rm_cat and render r1 and r2 again.”  
-   - “Create two new views orbiting around the kitchen area with ids v_kitchen_left, v_kitchen_right and matching renders r_kitchen_left/right.”
+   * “Set `rm = true` on the existing sofa and armchair elements, extend the floor and skirting behind them, and update the JSON.”
+   * “Add a kitchen run along wall `w2` under window `win_1`, about 2 m long, with base cabinets and a worktop.”
+   * “Create three new orbit views around the kitchen area with ids `v_kit1_front`, `v_kit1_left`, `v_kit1_right`.”
 
-3. The design prompt updates:
-   - `elems` (adding new cabinets, appliances, decor, etc.).  
-   - `views` and `render` (new cameras, new outputs).  
+3. The design or view-creation prompt updates:
 
-4. You then use the updated JSON + images as the input for Nano Banana’s actual rendering pipeline.
+   * `elems` (adding/removing/modifying elements and their `rm` / `repl` flags).
+   * `views` (adding or updating camera positions).
+
+4. Before each render call, keep only the `views` you want images for on that call and delete the rest, then send the pruned JSON to Nano Banana together with the relevant images.
 
 ---
 
