@@ -44,7 +44,7 @@ From the floor plan and interior reference photos of a SINGLE room, output ONLY 
         [number, number]
       ],
       "H": number,
-      "orientation": "+x" | "-x" | "+y" | "-y",  <-- ADD THIS LINE
+      "orientation": "+x" | "-x" | "+y" | "-y",
       "walls": [
         {
           "id": string,
