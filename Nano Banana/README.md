@@ -68,7 +68,7 @@ By separating the "seeing" (inventory) from the "coding" (JSON formatting), we s
 
 ### Inputs
 
-* The prompt text from Elements ExtractorPrompt
+* The prompt text from Elements Extractor Prompt
 * The **same** image set you will use for the JSON Extractor (1 floor plan + interior reference photos).
 
 ### Output Structure
