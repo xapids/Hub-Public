@@ -327,7 +327,7 @@ Key fields:
 #### 2.1 Step 1 – Extraction (this repo file)
 
 1. In a Nano Banana (or other LLM) chat:
-   - Paste the full text from `Image -> JSON Extractor.md`.  
+   - Paste the full text from `Image -> JSON Extractor Prompt.md`.  
    - Attach:
      - One floor plan image of a single room.  
      - 1–4 interior reference photos of that same room.
