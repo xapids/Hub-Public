@@ -90,8 +90,12 @@ If the user asks for fewer views (e.g. “only front and left”), omit the othe
 Common parameters:
 
 - Base radius `r` (distance from focus to camera in the floor plane):
-  - Set `r = 0.25` (25% of the minimum room dimension in normalised units).
-  - If this places `cam.xy` clearly outside the footprint, reduce to `r = 0.18`.
+  - **Calculate Metric Scale:** Check `space.geom.bounds` [W_meters, L_meters].
+    - If bounds exist: Calculate `meters_per_unit = max(W_meters, L_meters)`.
+    - If bounds missing: Assume `meters_per_unit = 5.0` (fallback).
+  - **Target Distance:** We want the camera to be **1.5 meters** away from the focus point.
+  - **Compute r:** `r = 1.5 / meters_per_unit`.
+    (e.g., if room is 5m wide, 1.0 unit = 5m, so r = 0.3).
 - Camera height for front/left/right:
   - `cam.h = 1.5` (clamp to ≤ `H - 0.2` if `H` exists).
 - Camera height for over:
