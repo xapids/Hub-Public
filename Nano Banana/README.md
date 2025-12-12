@@ -27,7 +27,7 @@ For each room you want to work with, the intended flow is:
      * contents (`elems` with `rm` / `repl` flags),
      * camera positions (`views`).
 
-   * **Manual Verification (Required):**
+   * **⚠️ Manual Verification (Required):**
      * **Height:** The extractor estimates `space.geom.H`. You **must** manually replace this with the exact physical ceiling height (e.g., `3.0` = 3 meters).
      * **Geometry:** Check `space.geom.pts`. If the room is L-shaped or complex, ensure the polygon shape matches reality.
 
