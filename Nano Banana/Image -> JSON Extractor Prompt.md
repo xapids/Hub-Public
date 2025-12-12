@@ -54,6 +54,7 @@ PROCESS OVERVIEW (Strict Order):
 
 "space": {
     "geom": {
+      "bounds": [number, number],
       "pts": [
         [number, number]
       ],
@@ -130,20 +131,29 @@ GEOMETRY & WALL ORDERING
    b. Starting at C0, walk around the perimeter CLOCKWISE, visiting each vertex once until you return to C0.  
    c. Call these ordered vertices C0, C1, …, C(n-1).
 
-4) Normalise to [0,1] x [0,1]:
+4) Determine Physical Scale (CRITICAL):
 
-   - Compute xmin, xmax, ymin, ymax from all raw vertices (xr, yr).  
-   - For each Ci = (xr, yr), set:
-       x = (xr - xmin) / (xmax - xmin)  
-       y = (yr - ymin) / (ymax - ymin)
-   - Store the ordered, normalised vertices in "space.geom.pts" as:
-       "pts": [[x0, y0], [x1, y1], ..., [xN, yN]]
+   - Read the text labels on the floor plan image to find the physical Width and Length of the room.
+   - If dimensions are in mm (e.g., 4500), convert to meters (4.5).
+   - Store these in "space.geom.bounds": [width_meters, length_meters].
+     (e.g., for a 4m x 3m room, use [4.0, 3.0]).
 
-   Here index i in pts corresponds to Ci.
+5) Normalise using UNIFORM SCALING (Preserve Aspect Ratio):
 
-5) Define walls:
+   - Compute raw bounding box:
+       raw_w = xmax - xmin
+       raw_h = ymax - ymin
+   - Determine the scaling factor (max dimension):
+       S = max(raw_w, raw_h)
+   - For each Vertex Ci = (xr, yr), compute:
+       x = (xr - xmin) / S
+       y = (yr - ymin) / S
+   - Store the ordered, normalised vertices in "space.geom.pts".
+     *Note: The longer dimension will span [0, 1]. The shorter dimension will be < 1.0.*
 
-   - For each edge Ci → C(i+1) (with C(n) wrapping back to C0), create a wall.  
+6) Define walls:
+
+   - For each edge Ci → C(i+1) (with C(n) wrapping back to C0), create a wall.
    - Assign wall ids in perimeter order:
        w1 for edge C0→C1, w2 for C1→C2, …  
    - For each wall, output:
@@ -159,9 +169,9 @@ GEOMETRY & WALL ORDERING
    - p0, p1 are integer indices into "pts".  
    - label is a short English identifier (e.g. "window_wall_long", "entrance_wall").
 
-6) Set "space.geom.H" to the approximate room height (e.g. 2.6).
+7) Set "space.geom.H" to the approximate room height (e.g. 2.6).
 
-7) Define "space.geom.orientation":
+8) Define "space.geom.orientation":
    - Determine the logical "front" of the room (usually facing the main window or the main activity wall).
    - Output one string: "+x", "-x", "+y", or "-y".
    - This tells downstream tools which direction in the normalised plan is "forward".
