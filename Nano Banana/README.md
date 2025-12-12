@@ -10,10 +10,17 @@ It is intentionally **per-room**, not a whole-house schema.
 
 For each room you want to work with, the intended flow is:
 
-1. Extract a room model (once per room or per batch of images)
+1. Create a Bill of Quantities (Inventory)
+   * Use the prompt in Elements Prompt.
+   * Inputs: floor plan + interior photos.
+   * Output: A structured text list of architectural features, joinery, and furniture.
+   * This step ensures no items are missed before coding begins.
 
+2. Extract a room model (once per room or per batch of images)
    * Use the prompt in Image → JSON Extractor.
-   * Inputs: one floor plan image + one or more interior reference images of the *same* room.
+   * Inputs:
+     * One floor plan image + one or more interior reference images of the *same* room.
+     * The "Bill of Quantities" text from Step 1.
    * Output: a JSON object describing:
 
      * room geometry (`space`),
@@ -24,13 +31,13 @@ For each room you want to work with, the intended flow is:
      * **Height:** The extractor estimates `space.geom.H`. You **must** manually replace this with the exact physical ceiling height (e.g., `3.0` = 3 meters).
      * **Geometry:** Check `space.geom.pts`. If the room is L-shaped or complex, ensure the polygon shape matches reality.
 
-2. (Optional) Add canonical 3D-like views
+3. (Optional) Add canonical 3D-like views
 
    * Use the prompt in View Creator.
    * Inputs: the JSON from step 1 + a **focus area** and a `focus_key`.
    * Output: the same JSON, but with extra orbit-style camera views added to `views`.
 
-3. Before each Nano Banana call, prune views to control outputs and tokens
+4. Before each Nano Banana call, prune views to control outputs and tokens
 
    * Decide which camera ids you actually want images for on this call.
    * Delete any `views[*]` entries you do not need.
