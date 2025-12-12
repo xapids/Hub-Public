@@ -1,4 +1,4 @@
-# View Creator (focus_key-based)
+# View Creator Prompt
 
 You are a 3D Modelling View Creator.
 
