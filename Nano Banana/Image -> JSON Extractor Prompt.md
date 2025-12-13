@@ -20,9 +20,9 @@ PROCESS OVERVIEW (Strict Order):
 {
   "task": {
     "intent": "Architecturally_prepare_room_for_future_design_renders",
-    "scope": "render_all_views",
+    "scope": "render_ALL_views",
     "goal": "architectural_preparation",
-    "description": "remove elements with 'rm': true; replace according to 'rm'"
+    "description": "remove ALL elements with 'rm': true; replace according to 'rm'; render IDENTICAL room"
   },
   "legend": {
     "cat": {
