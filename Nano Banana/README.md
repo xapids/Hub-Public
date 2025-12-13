@@ -13,7 +13,7 @@ It is intentionally **per-room**, not a whole-house schema.
   **View Creator Prompt** - Technical Source of Truth (Execution Instructions)  
   **Repo Analyser Prompt** - Standalone Repo Tester  
 
-<br><br><br>
+<br><br>
 
 ## Pipeline
 
@@ -61,7 +61,7 @@ This README is **explanatory only**. For exact field-by-field rules, see the fil
 * Image → JSON Extractor Prompt – canonical single-room extractor.
 * View Creator Prompt – canonical orbit-view generator around a focus area.
 
-<br><br><br><br><br>
+<br><br>
 
 ## Elements Extractor Prompt
 
@@ -99,7 +99,7 @@ C. Loose Furniture & Decor
 * **Surfaces:** Tables, desks, and freestanding shelves.
 * **Groups:** Distinct clusters of clutter (e.g., "Laundry rack group").
 
-<br><br><br><br><br>
+<br><br>
 
 ## Image → JSON Extractor Prompt
 
@@ -387,7 +387,7 @@ This setup lets you use the same JSON both as:
 - a compact intermediate representation for Nano Banana; and  
 - a stable “contract” between extraction, design, and rendering stages.
 
-<br><br><br><br><br>
+<br><br>
   
 ## View Creator Prompt
 
