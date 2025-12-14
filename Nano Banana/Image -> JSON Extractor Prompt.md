@@ -54,7 +54,8 @@ PROCESS OVERVIEW (Strict Order):
   "media": {
     "floor": string,
     "refs": [
-      { "id": string, "file": string }
+  { "id": string, "file": string },
+  { "id": string, "file": string }
     ]
   },
 
@@ -62,18 +63,14 @@ PROCESS OVERVIEW (Strict Order):
     "geom": {
       "bounds": [number, number],
       "pts": [
+        [number, number],
         [number, number]
       ],
       "H": number,
       "orientation": "+x" | "-x" | "+y" | "-y",
       "walls": [
-        {
-          "id": string,
-          "seq": int,
-          "p0": int,
-          "p1": int,
-          "label": string
-        }
+        { "id": string, "seq": int, "p0": int, "p1": int, "label": string },
+        { "id": string, "seq": int, "p0": int, "p1": int, "label": string }
       ]
     }
   },
@@ -82,35 +79,18 @@ PROCESS OVERVIEW (Strict Order):
     {
       "id": string,
       "ref": string | null,
-      "cam": {
-        "rel": "corner" | "wall" | "free",
-        "w1": string | null,
-        "w2": string | null,
-        "xy": [number, number],
-        "h": number
-      }
+      "cam": { "rel": "corner" | "wall" | "free", "w1": string | null, "w2": string | null, "xy": [number, number], "h": number }
     }
   ],
-
   "elems": [
     {
       "id": string,
       "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp",
       "type": string,
-      "pos": {
-        "rel": "on" | "between" | "floor" | "ceil",
-        "w1": string | null,
-        "w2": string | null,
-        "xy": [number, number],
-        "h": number | null,
-        "sz": [number | null, number | null, number | null]
-      },
+      "pos": { "rel": "on" | "between" | "floor" | "ceil", "w1": string | null, "w2": string | null, "xy": [number, number], "h": number | null, "sz": [number | null, number | null, number | null] },
       "views": [
-        {
-          "v": string,
-          "bb": [number, number, number, number],
-          "vis": "f" | "p" | "o"
-        }
+        { "v": string, "bb": [number, number, number, number], "vis": "f" | "p" | "o" },
+        { "v": string, "bb": [number, number, number, number], "vis": "f" | "p" | "o" }
       ],
       "d": string,
       "rm": boolean,
