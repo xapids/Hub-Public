@@ -64,6 +64,7 @@ PROCESS OVERVIEW (Strict Order):
       "bounds": [number, number],
       "pts": [
         [number, number],
+        [number, number],
         [number, number]
       ],
       "H": number,
