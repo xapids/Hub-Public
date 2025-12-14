@@ -140,10 +140,14 @@ GEOMETRY & WALL ORDERING
 
 6) Define walls:
 
-   - For each edge Ci → C(i+1) (with C(n) wrapping back to C0), create a wall.
-   - Assign wall ids in perimeter order:
-       w1 for edge C0→C1, w2 for C1→C2, …  
-   - For each wall, output:
+   - Step 1: First, list every explicit dimension text found in the floor plan image (e.g., "1.9m").
+   - Step 2: For each text label found, create exactly ONE corresponding entry in the "walls" array.
+   - Constraint: Do NOT create wall entries for corners, short offsets, or edges that do not have a specific text measurement attached to them.
+   - Mapping:
+      - Proximity Rule (Primary): Associate the measurement text with the wall segment physically closest to that text in the image.
+      - Orientation Check: Ensure the wall segment is parallel to the dimension line or arrow (e.g., horizontal text/arrows describe horizontal walls).
+      - Relative Scale: Verify that larger numbers correspond to visually longer wall segments.
+   - For each measured wall, output:
        {
          "id": "w1",
          "seq": 1,
