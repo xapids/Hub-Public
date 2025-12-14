@@ -31,7 +31,7 @@ List engine inefficiencies (orphaned data), consistency errors (typos/mismatched
 ### Comments
 If in this chat user requests file edits: 
 - provide edits for relevant sections; no full rewrites
-- be as concise as possible without losing instructions
+- condense edit suggestions through specificity, optimizing context window load
 - use this **EXACT format**:
 
 > **File:** `[Exact Filename]`
