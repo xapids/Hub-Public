@@ -142,9 +142,11 @@ GEOMETRY & WALL ORDERING
 6) Define walls:
 
    - Step 1: First, list every explicit dimension text found in the floor plan image (e.g., "1.9m").
-   - Step 2: For each text label found, create exactly ONE corresponding entry in the "walls" array.
-   - Constraint: Do NOT create wall entries for corners, short offsets, or edges that do not have a specific text measurement attached to them.
+- Step 2: You must create a "walls" entry for EVERY segment between vertices (p0 -> p1), walking the full perimeter.
+   - Constraint: Ensure the wall loop is closed. Every vertex pair (0->1, 1->2... n->0) must be a wall.
    - Mapping:
+      - If a specific text dimension exists for a segment, assign it to that wall.
+      - If no text dimension exists, create the wall entry with a generic label (e.g., "wall_unmeasured") and infer its length from the normalized geometry and scale.
       - Proximity Rule (Primary): Associate the measurement text with the wall segment physically closest to that text in the image.
       - Orientation Check: Ensure the wall segment is parallel to the dimension line or arrow (e.g., horizontal text/arrows describe horizontal walls).
       - Relative Scale: Verify that larger numbers correspond to visually longer wall segments.
