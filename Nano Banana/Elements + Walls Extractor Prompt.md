@@ -8,7 +8,7 @@
 3. **Architectural Scan:** Look specifically for structural features: beams, columns, arches, steps, dado rails, cornices, and skylights.
 
 #### OUTPUT FORMAT:
-OUTPUT FORMAT: Return ONLY valid, concise JSON. Use this exact schema:
+OUTPUT FORMAT: Return ONLY valid, concise JSON; Render array objects on single lines; Use this exact schema:
 
 {
   "legend": {
