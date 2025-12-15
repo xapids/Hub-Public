@@ -101,8 +101,6 @@ Common parameters:
 - Camera height for over:
   - If H exists: `cam.h = min(H * 0.9, 2.4)`.  
   - Otherwise: `cam.h = 2.2`.
-- Lens for all orbit views:
-  - `lens = { "t": "wide", "f": 18, "fov": 90 }`.
 
 Local angle convention:
 
