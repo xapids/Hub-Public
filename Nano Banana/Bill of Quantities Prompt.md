@@ -34,8 +34,8 @@
     "H": number
   },
   "elems": [
-    { "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp", "qty": number, "d": string },
-    { "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp", "qty": number, "d": string }
+    { "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp", "d": string },
+    { "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp", "d": string }
   ]
 }
 }
