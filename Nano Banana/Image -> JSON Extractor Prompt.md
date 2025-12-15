@@ -1,7 +1,7 @@
 TASK
 You are a vision + geometry extractor.
 
-PROCESS OVERVIEW (Strict Order):
+#### PROCESS OVERVIEW (Strict Order):
 1. **Inventory Reconciliation:**
    - You will be provided with a **"Bill of Quantities"** text.
    - **MAPPING RULE:** You must create a JSON entry in "elems" for EVERY item listed in the Inventory List.
@@ -16,6 +16,11 @@ PROCESS OVERVIEW (Strict Order):
    - Now, map every item from your Visual Inventory into the "elems" array of the schema below.
    - Calculate their [0,1] coordinates.
    - Output ONLY the final valid JSON.
+  
+#### OUTPUT FORMAT:
+- Return ONLY valid, concise JSON
+- Render array objects on single lines
+- Use this exact schema:
 
 {
   "task": {
