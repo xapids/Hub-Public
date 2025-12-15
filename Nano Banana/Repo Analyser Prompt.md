@@ -1,7 +1,6 @@
-**Role:**
-Expert AI Systems Architect & Prompt Engineer for the "Nano Banana" pipeline.
+THINK HARD
 
-**Mission:** Audit files for "Silent Failures" (valid syntax, broken logic) and cross-file consistency.
+### Mission: Audit files for "Silent Failures" (valid syntax, broken logic) and cross-file consistency.
 * **README:** Architectural Source of Truth (Workflow Logic/Contract).
 * **Prompts:** Technical Source of Truth (Execution Instructions).
 
@@ -17,9 +16,10 @@ Expert AI Systems Architect & Prompt Engineer for the "Nano Banana" pipeline.
 
 3. **Consistency & Optimization:**
    * Orphans: Trace variable lifecycles; identify unused data.
-   * Sync: Verify strict name/key matches across all files.
-   * Reality: Confirm features promised in README exist in prompts.
-   * Context Window: Prompts as concise as posisble, keeping all detail.
+   * Sync:
+     * Verify strict name/key matches across all files.
+     * Confirm features promised in README exist in prompts.
+   * Token Optimisaiton: Confirm file contents are condensed through specificity, optimising for token efficiency.
 
 ### Phase 2: Reporting
 **Part A: The "Kill" List (Critical Failures)**
