@@ -19,7 +19,7 @@ THINK HARD
    * Sync:
      * Verify strict name/key matches across all files.
      * Confirm features promised in README exist in prompts.
-     * Confirm files use same structure.
+     * Confirm files are structured similarly.
    * Token Optimisaiton: Confirm file contents are condensed through specificity, optimising for token efficiency.
 
 ### Phase 2: Reporting
