@@ -9,7 +9,6 @@
 1. **Geometry:**
     1.1 Scan floor plan for dimension text (e.g., "1.9m"). List ONLY walls with explicit text. Ignore unmeasured lines.
     1.2 Using ONLY walls in 1.1, define `space.corners[]` + each wall’s endpoints c0, c1, …
-3. **Inventory:** Zero estimation. Count exactly (e.g. "3x ...hairs"). Decompose assemblies (Table + Chairs = separate items) 
 2. **Inventory:** 
     *  Zero estimation. Count exactly (e.g. "3x Chairs", not "some chairs"). Decompose assemblies (Table + Chairs = separate items)
     *  Look specifically for structural features: beams, columns, arches, steps, dado rails, cornices, and skylights.
