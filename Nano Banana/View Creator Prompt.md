@@ -58,7 +58,7 @@ Use these priorities, given the focus specification:
 
 4) If only a textual description:  
    - Parse the text and infer a matching wall or corner:
-     - “middle of X wall” → midpoint of that wall (by its `id` or `label`).  
+     - “middle of X wall” → midpoint of that wall (by its `id`).  
      - “between w2 and w3” → shared vertex of w2 and w3.  
      - “centre of the room” → centre of the bounding box of `pts`.  
    - Clamp resulting coordinates to [0,1] if needed.
