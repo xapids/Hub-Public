@@ -47,7 +47,7 @@
   "elems": [
     { "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp", "d": string },
     { "cat": "arch" | "open" | "fix" | "furn" | "appl" | "dec" | "grp", "d": string }
-  ]
+  ],
   "views": [
     { "id": string, "ref": string },
     { "id": string, "ref": string }
