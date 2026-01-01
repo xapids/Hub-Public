@@ -29,10 +29,12 @@
   
 3. **Views:** Create exactly one `views[]` entry per reference image with id (e.g., `v_1`, `v_2`) and `ref` with image filename/id
 
-#### OUTPUT FORMAT:
-- Return ONLY valid, concise JSON
-- Render array objects on single lines
-- Use this exact schema:
+#### OUTPUT Process:
+1. **Thought Block:** First, create a thought block where you process the image step-by-step.
+   * List the raw walls and turns.
+   * List every item found. If an item has a count > 1 (e.g., "2x Windows"), explicitly state the rule requirement: "Rule check: '2x Windows' on w7 requires two wall IDs: 'w7, w7'".
+
+2. **FINAL JSON**: After validating your findings in the thought block, generate the final JSON object strictly using tothis exact schema:
 
 {
 "perception": {
