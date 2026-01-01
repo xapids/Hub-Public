@@ -7,12 +7,12 @@ It is intentionally **per-room**, not a whole-house schema.
 <br><br>
 
 ## Files
-  **README** - Architectural Source of Truth (Workflow Logic/Contract)  
-  **Perception Prompt** - Extracts inventory quantities and qualitative wall topology sequence from images.
-  **Arithmetic Prompt** - Converts topological data into exact, closed metric coordinates using pure vector math.
-  **Integration Prompt** - Normalizes rigid geometry and populates the final scene JSON with elements and views.
-  **Camera Utility Prompt** - Adds pseudo-3D orbit camera views to an existing room JSON.
-  **Repo Analyser Prompt** - Standalone Repo Tester  
+   * **README** - Architectural Source of Truth (Workflow Logic/Contract)
+   * **Perception Prompt** - Extracts inventory quantities and qualitative wall topology sequence from images.
+   * **Arithmetic Prompt** - Converts topological data into exact, closed metric coordinates using pure vector math.
+   * **Integration Prompt** - Normalizes rigid geometry and populates the final scene JSON with elements and views.
+   * **Camera Utility Prompt** - Adds pseudo-3D orbit camera views to an existing room JSON.
+   * **Repo Analyser Prompt** - Standalone Repo Tester  
 
 <br><br>
 
@@ -64,7 +64,7 @@ Before each Nano Banana call, prune views to control outputs and tokens
 
 <br><br>
 
-## Elements + Walls Extractor Prompt
+## Perception Prompt (Step 1)
 
 This prompt acts as the project's **"Surveyor"**. It converts visual data into a rigorous, text-based inventory *before* any JSON coding happens.
 
@@ -83,7 +83,7 @@ By separating the "seeing" (inventory) from the "coding" (JSON formatting), we s
 
 ### Output Structure
 
-The output is a Markdown-formatted "Inventory List" divided into three strict categories. You will copy-paste this output into the *Image → JSON Extractor* in the next step.
+The output is a Markdown-formatted "Inventory List" divided into three strict categories. You will copy-paste this output into the *Integration Prompt* in the next step.
 
 A. Architecture & Openings (The Shell)
 * **Windows & Doors:** Exact counts of every opening.
@@ -102,11 +102,19 @@ C. Loose Furniture & Decor
 
 <br><br>
 
-## Image → JSON Extractor Prompt
+## Arithmetic Prompt (Step 2)
 
-This extractor prompt converts a **single-room floor plan + interior photos** into a compact JSON description that Nano Banana can use as a geometric + semantic scene model.
+This is a deterministic calculation step. It takes the qualitative wall sequence from the Perception step (lengths and turns) and applies pure vector math to determine the exact, closed metric coordinates of the room footprint. It has zero vision capabilities and relies entirely on the input numbers.
 
-The extractor itself is LLM-based (e.g. Nano Banana in “text+vision” mode). The resulting JSON is what you feed into downstream render / design prompts.
+**Output:** An intermediate `raw_geometry` JSON containing exact metric vertices and bounds.
+
+<br>
+
+## Integration Prompt (Step 3)
+
+This is the assembly step. It takes the rigid, pre-calculated geometry from the Arithmetic Prompt, normalizes it to [0,1] space, and uses the visual data from images to populate that rigid shape with the inventory defined in the Perception Prompt.
+
+**The resulting JSON is the room model fed into downstream render/design prompts.**
 
 ---
 
@@ -390,9 +398,9 @@ This setup lets you use the same JSON both as:
 
 <br><br>
   
-## View Creator Prompt
+## Camera Utility Prompt
 
-This spec takes an existing **single-room** JSON (from the Image → JSON Extractor) and adds a small family of pseudo-3D “orbit” views around a chosen focus area.
+This spec takes the `integration` JSON and adds a small family of pseudo-3D “orbit” views around a chosen focus area.
 
 ### What it does
 
@@ -413,7 +421,7 @@ The spec never changes walls or elements. It only adds or updates `views` whose 
 
 To use this spec you need:
 
-* The room JSON produced by the Image → JSON Extractor (single-room only).
+* The `integration` JSON
 * A text instruction that describes:
 
   * The `focus_key` you want to use.
@@ -430,9 +438,9 @@ The result is the same JSON object, but with additional `views` entries.
 
 Typical pattern:
 
-1. Paste the current room JSON.
+1. Paste the `integration` JSON.
 
-2. Paste the full text from [3D Modelling View Creator](./3D%20Modeling%20View%20Creator.md).
+2. Paste the full text from Camera Utility Prompt.
 
 3. Add an instruction, for example:
 
