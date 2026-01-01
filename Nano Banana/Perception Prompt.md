@@ -32,9 +32,9 @@
 #### OUTPUT Process:
 1. **Thought Block:** First, create a thought block where you process the image step-by-step showing your work.
    * List the raw walls and turns.
-   * List every item found. If an item has a count > 1 (e.g., "2x Windows"), explicitly state the rule requirement: "Rule check: '2x Windows' on w7 requires two wall IDs: 'w7, w7'".
+   * List every item found.
 
-2. **FINAL JSON**: After validating your findings in the thought block, generate the final JSON object using strictly this exact schema:
+2. **JSON**: After validating your findings in the thought block, generate a JSON object using strictly this exact schema:
 
 {
 "perception": {
