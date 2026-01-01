@@ -21,6 +21,7 @@ CRITICAL RULES (Arithmetic ONLY, No Perception)
 OUTPUT FORMAT
 Return ONLY valid JSON using this exact schema:
 {
+ "arithmetic": {
   "raw_geometry": {
     "pts": [
       [0.0, 0.0],
@@ -34,4 +35,5 @@ Return ONLY valid JSON using this exact schema:
       "max_y": number
     }
   }
+ }
 }
