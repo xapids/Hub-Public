@@ -8,9 +8,10 @@ It is intentionally **per-room**, not a whole-house schema.
 
 ## Files
   **README** - Architectural Source of Truth (Workflow Logic/Contract)  
-  **Bill of Quantities Prompt** - Technical Source of Truth (Execution Instructions)  
-  **Image -> JSON Extractor Prompt** - Technical Source of Truth (Execution Instructions)  
-  **View Creator Prompt** - Technical Source of Truth (Execution Instructions)  
+  **Perception Prompt** - Extracts inventory quantities and qualitative wall topology sequence from images.
+  **Arithmetic Prompt** - Converts topological data into exact, closed metric coordinates using pure vector math.
+  **Integration Prompt** - Normalizes rigid geometry and populates the final scene JSON with elements and views.
+  **Camera Utility Prompt** - Adds pseudo-3D orbit camera views to an existing room JSON.
   **Repo Analyser Prompt** - Standalone Repo Tester  
 
 <br><br>
@@ -19,43 +20,47 @@ It is intentionally **per-room**, not a whole-house schema.
 
 For each room you want to work with, the intended flow is:
 
-1. Create a Bill of Quantities (BoQ) boundary contract (once per room)
-   * Use BoQ Prompt.
-   * Inputs: marked floor plan (boundary arrows + length label in meters for EVERY perimeter segment; ceiling height label `H=` in meters; interior photos.
-   * Output: BoQ JSON (`bill_of_quantities`) containing `space` (CW corners + closed-loop walls with L, plus `H`), `elems` inventory, and `views` (1 per ref photo).
-   * This step ensures no items are missed before coding begins.
+### 1. Perception (Inventory & Topology)
+   * **Goal:** See the room, count items, walls, c views and determine the sequence of turns defining the shape.
+   * **Prompt:** Perception Prompt.
+   * **Inputs:**
+      * Marked floor plan (boundary arrows + length label in meters for EVERY perimeter segment; ceiling height label `H=` in meters)
+      * Interior reference images.
+   * **Output:** `perception` JSON containing elements, views, walls, corners, height inforation.
 
-2. Extract a room model (once per room or per batch of images)
-   * Use the Image → JSON Extractor prompt.
-   * Inputs:
-     * One floor plan image + one or more interior reference images of the *same* room.
-     * The "Invetory List" text from Step 1.
-   * Output: a JSON object describing:
+### 2. Arithmetic (Geometry Calculation)
+   * **Goal:** Convert the qualitative topology into exact, mathematically closed metric coordinates. No vision allowed.
+   * **Prompt:** Arithmetic Prompt.
+   * **Input:** `perception` JSON from Step 1.
+   * **Output:** `arithmetic` JSON containing exact metric coordinates.
 
-     * room geometry (`space`),
-     * contents (`elems` with `rm` / `repl` flags),
-     * camera positions (`views`).
+### 3. Integration
+   * **Goal:** Normalize the rigid geometry and populate it with the inventory and cameras.
+   * **Prompt:** Integration Prompt.
+   * **Inputs:**
+       * `perception` JSON from Step 1
+       * `arithmetic` JSON from Step 2
+       * Marked floor plan
+       * Interior reference images
+   * **Output:** The room JSON model `integration`, placing all elements within a standardised coordinate system.
 
-3. (Optional) Add canonical 3D-like views
+### 4. Camera Utility
+   * **Goal:** Add canonical pseudo-3D orbit views around a specific focus area (e.g., "kitchen", "desk") without modifying the room geometry or elements, to allow for area specific room specifications.
+   * **Prompt:** Camera Utility Prompt.
+   * **Inputs:**
+       * `integration` JSON from Step 3
+       * A **focus area** and `focus_key`.
+   * **Output:** `integration` JSON with extra orbit-style camera views added to the `views` array.
 
-   * Use the prompt in View Creator.
-   * Inputs: the JSON from step 1 + a **focus area** and a `focus_key`.
-   * Output: the same JSON, but with extra orbit-style camera views added to `views`.
+### Comments 
 
-4. Before each Nano Banana call, prune views to control outputs and tokens
-
+Before each Nano Banana call, prune views to control outputs and tokens
    * Decide which camera ids you actually want images for on this call.
    * Delete any `views[*]` entries you do not need.
    * The JSON you send to Nano Banana should typically contain:
 
      * the full `space` and `elems`, but
      * only a small subset of `views` corresponding to shots you want now.
-
-This README is **explanatory only**. For exact field-by-field rules, see the files:
-
-* Elements Extractor Prompt - inventory list extractor
-* Image → JSON Extractor Prompt – canonical single-room extractor.
-* View Creator Prompt – canonical orbit-view generator around a focus area.
 
 <br><br>
 
