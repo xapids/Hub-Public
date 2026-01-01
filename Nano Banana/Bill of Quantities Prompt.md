@@ -27,7 +27,6 @@
         * Never encode wall ids in `"d"`
     *  Look specifically for structural features: beams, columns, arches, steps, dado rails, cornices, and skylights.
   
-
 3. **Views:** Create exactly one `views[]` entry per reference image with id (e.g., `v_1`, `v_2`) and `ref` with image filename/id
 
 #### OUTPUT FORMAT:
