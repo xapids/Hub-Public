@@ -16,7 +16,7 @@ You are a vision + geometry extractor.
       - Do NOT skip/add new elems types/views beyond BoQ; do not infer topology/add new corners/walls; do not output `boq.space.corners[]/walls[]`
 
 2. **Geometry Normalization (Arithmetic Input):**
-   - **Input:** Pre-calculated `raw_geometry` JSON block consisting of `raw_geometry.points[]` and `raw_geometry.bounds{}` in meters
+   - **Input:** Pre-calculated `raw_geometry` JSON block consisting of `raw_geometry.pts[]` and `raw_geometry.bounds{}` in meters
    - **Action:**
      - Compute raw width/height: `raw_w = bounds.max_x - bounds.min_x`; `raw_h = bounds.max_y - bounds.min_y`.
      - Determine uniform scaling factor: `S = max(raw_w, raw_h)`.
