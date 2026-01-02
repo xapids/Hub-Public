@@ -1,19 +1,15 @@
-TASK
-You are a vision + geometry extractor.
-
 ### PROCESS OVERVIEW (Strict Order):
 #### 1. Perception Prompt Reconciliation:
    - **Input:** `perception` JSON block consisting of `perception.space.corners[]`, `perception.space.walls[]`, `perception.elems[]`, `perception.views[]`.
+   - **Action:**
+      - Expand `perception.elems[]` counts into distinct ids (e.g., 3x casement → win_1..win_3)
+      - Do NOT skip/add new elems types/views beyond Perception; do not infer topology/add new corners/walls; do not output `perception.space.corners[]/walls[]`
    - **Output:**
       - `space.geom.pts[]` (1:1 order↔`perception.space.corners[]`),
       - `space.geom.walls[]` (1:1 ids/order↔`perception.space.walls[]`),
       - `elems[]` (`perception.elems[]` expanded),
       - `views[]` (1:1 ids/order↔`perception.views[]`),
       - `media.refs[]` created 1:1 from `perception.views[]`
-   - **Rules:**
-      - Expand `perception.elems[]` counts into distinct ids (e.g., 3x casement → win_1..win_3); If `perception.elems[]` has `w_id` (single wall only), every expanded instance inherits it: set `pos.rel:"on"`, `pos.w1:<id>`, `pos.w2:null`. If missing/null, infer normally (incl. two-wall "between").
-      - If `perception.elems[]` has `w_id` (null | `"w4"` | `"w1,w2,..."`): on expansion assign instance `pos.rel:"on"`, `pos.w1` by list order. Never parse wall ids from `d`.
-      - Do NOT skip/add new elems types/views beyond Perception; do not infer topology/add new corners/walls; do not output `perception.space.corners[]/walls[]`
 
 #### 2. Arithmetic Prompt Reconciliation (Geometry Normalization):
    - **Input:** Pre-calculated `raw_geometry` JSON block consisting of `raw_geometry.pts[]` and `raw_geometry.bounds{}` in meters
@@ -247,7 +243,11 @@ For each element in the Bill of Quantities, create an "elems" entry.
      - "ceil"    = mainly attached to the ceiling (ceiling fan, pendant).
 
    - w1, w2:
-     - If `perception.elems[]` provides `w_id` (single-wall truth), use it as `w1` and force `rel:"on"` (`w2:null`); do not override. 
+     - If `perception.elems[].w_id`:
+        - If `w_id` is a single wall id: exactly one instance exists → set `pos.rel:"on"`, `pos.w1:<id>`, `pos.w2:null`; do not override.
+        - If `w_id` is a comma-list: number of instances MUST equal list length → assign `pos.rel:"on"`, `pos.w1` per-instance by list order.
+        - If `w_id` null, infer normally (incl. two-wall "between").
+        - Do NOT parse wall ids from `d`.
      - Use wall ids from "space.geom.walls".  
      - Consistent with rel:
        - "on": w1 is the wall it is on; w2 = null.  
