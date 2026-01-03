@@ -1,10 +1,10 @@
-### CLI + Git/Github Best Practices 
+### CLI + Git, Github Best Practices 
 
 ---
 
 #### Legend
-- **Repository** (concept): a directory of files.
-- **Git**: `.git/`; optional metadata enabling version control.
+- **Repository** (concept): a directory of files = content
+- **Git**: `.git/`; optional metadata enabling version control = history + coordination 
 - **CLI**: Command-Line Interface
   - Claude Code - `.claude/`
   - Codex - `.codex/`
