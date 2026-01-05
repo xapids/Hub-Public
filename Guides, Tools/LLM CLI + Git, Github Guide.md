@@ -1,6 +1,6 @@
-### CLI + Git, GitHub Guide
+### LLM CLI + Git, GitHub Guide
 
-A dense, practical model for using AI CLIs (e.g., Claude/Codex-style) with Git/GitHub.
+A dense, practical model for using LLM CLIs with Git/GitHub.
 
 ---
 
@@ -12,7 +12,7 @@ A dense, practical model for using AI CLIs (e.g., Claude/Codex-style) with Git/G
 
 **GitHub (Remote Git):** a shared copy of the Git database + Repo + collaboration surface (PRs, reviews, permissions).  
 
-**AI CLI:** 
+**LLM CLI:** 
 - convenience machinery e.g Claude Code, Codex 
 - reads/writes files in your working tree
 - directories: caches, indexes, session metadata, permissions, optional rules.
