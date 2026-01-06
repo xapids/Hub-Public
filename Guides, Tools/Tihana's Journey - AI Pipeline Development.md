@@ -76,6 +76,44 @@ Think of sub‑agents as **additional context windows** you can orchestrate.
 - Installation: https://www.humanlayer.dev/docs/introduction
 - Understanding the step by step system specifics like commands, agents and workflows: "Use a prompt like /research_codebase I want to understand how to set up and use the HumanLayer system based on information you can find in this repo.  Create a setup guide for me. That will get you pretty far."
 
+#### Codelayer for Windows
+Codelayer is currently only supported for macos. According to the dev team, they are working on windows compatability.
+I spoke with a dev from the humanlayer/codelayer company and they said they run their whole company through codelayer. Coding and non-coding tasks. I havent tried it yet, but will and would recommend you to do it too, if the complexity below is something you feel comfortable dealing with.
+The most windows friendly non techinical setup chatgpt and I could come up with is as folllows:
+
+```
+CodeLayer UI on Windows via a remote hosted macOS machine
+
+1.1 Installation steps (remote Mac approach: Windows as a thin client)
+
+* Rent a hosted Mac (recommended simplest: MacStadium “Mac mini”), then remote into its macOS desktop from Windows using a VNC client. ([macstadium.com][1])
+* On the remote Mac, install CodeLayer using one of the official macOS methods:
+
+  * Homebrew cask: `brew install --cask --no-quarantine humanlayer/humanlayer/codelayer` ([humanlayer.dev][2])
+  * Or download the DMG from GitHub releases and drag the app into Applications. ([GitHub][3])
+* Launch CodeLayer on the remote Mac and do all agent work there (Claude Code integration, prompts, etc.). ([humanlayer.dev][2])
+
+### 1.1.1 Explicit “do this” steps (one concrete provider + apps)
+
+* Provider: MacStadium (hosted Mac mini). Remote desktop app on Windows: RealVNC “VNC Viewer” (MacStadium explicitly recommends it for accessing the Mac desktop). ([macstadium.com][1])
+* Connect: install VNC Viewer on Windows, enter the MacStadium connection details, log in, and you will see the macOS desktop in a window. ([macstadium.com][1])
+* Install CodeLayer on that macOS desktop via Homebrew cask (above) or DMG release method (above). ([GitHub][4])
+
+(Alternative provider with official docs: AWS EC2 Mac. GUI access is via Apple Remote Desktop/VNC after initial setup; it is usually more setup-heavy than a managed Mac desktop provider.) ([AWS Documentation][5])
+
+### 1.2 Git (local filesystem) vs GitHub (remote) in the remote Mac setup
+
+* Local git working copy should live on the remote Mac’s disk. In this setup, “local” means “local to the Mac you are remoting into”; Windows is only keyboard/screen. GitHub remains the remote (push/pull unchanged). 
+* Do not try to treat your Windows filesystem as the working directory for CodeLayer running on a remote Mac. The simplest rule is: edit/commit/push on the Mac; use GitHub as the sync point back to Windows (separately clone on Windows if needed).
+* WSL is not required for this approach. If you also use WSL, it should be for separate Windows-side workflows, not for sharing the same live working tree with the remote Mac.
+
+[1]: https://macstadium.com/blog/accessing-your-mac-mini-from-anywhere?utm_source=chatgpt.com "Accessing Your Mac mini From Anywhere"
+[2]: https://humanlayer.dev/docs/introduction?utm_source=chatgpt.com "Introduction"
+[3]: https://github.com/humanlayer/humanlayer/releases?utm_source=chatgpt.com "Releases · humanlayer/humanlayer"
+[4]: https://github.com/humanlayer/homebrew-humanlayer?utm_source=chatgpt.com "HumanLayer Homebrew Tap"
+[5]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-mac-instance.html?utm_source=chatgpt.com "Connect to your Mac instance using SSH or a GUI"
+```
+
 ---
 
 ## GitHub
