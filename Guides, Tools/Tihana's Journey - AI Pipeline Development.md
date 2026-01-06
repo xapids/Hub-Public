@@ -19,10 +19,19 @@ It is intended as a living reference rather than a step‑by‑step tutorial.
 
 ## Understanding Claude Code
 
-**Some core concepts** - Helpful entry point to understand shift in workflow appraoch
-- Videos:
+**Concepts** - 
+- Helpful entry points to understand shift in workflow approach:
   - https://www.youtube.com/watch?v=JC2dR2RHcEM&t=7s
   - https://www.youtube.com/watch?v=rfDvkSkelhg&t=7s
+
+Agents
+- Main Claude/Codex terminal = main agent.
+- Sub‑agents:
+  - Have separate context windows.
+  - Pass *results only* (handoffs), not full reasoning traces.
+  - Enable parallelism, chaining, and evaluation/merging steps.
+
+Think of sub‑agents as **additional context windows** you can orchestrate.
 
 **Full workflow walkthrough** -  To get familiar with the enviroment. How it looks, explicit steps etc.
 - Video: https://www.youtube.com/watch?v=32xfY8ct6Qw&t=1871s  
@@ -54,7 +63,7 @@ It is intended as a living reference rather than a step‑by‑step tutorial.
 
 ## GitHub
 
-Creating a GitHub repository gives you:
+A GitHub repository gives you:
 - Versioned file storage
 - Full history of changes
 - Ability to branch, revert, and experiment safely
@@ -86,22 +95,11 @@ See the CLI + Git/GitHub guide linked below.
 
 ## Tooling Add‑Ons
 
-**CCStatusLine**
-- Shows live context window usage in terminal.
-- Aim to stay below ~40%.
-
 **HumanLayer**
 - Installation: read all READMEs carefully.
 - Sub‑agents and commands often replace “skills” for coding.
 
-**Key concept**
-- Main Claude terminal = main agent.
-- Sub‑agents:
-  - Have separate context windows.
-  - Pass *results only* (handoffs), not full reasoning traces.
-  - Enable parallelism, chaining, and evaluation/merging steps.
 
-Think of sub‑agents as **additional context windows** you can orchestrate.
 
 ---
 
