@@ -10,16 +10,11 @@ It is intended as a living reference rather than a step‑by‑step tutorial.
 ## Getting Started with Claude Code
 
 **Installation**
-- Instructions: https://docs.google.com/document/d/1fyIBcSlbYNipWNURXOMUQL0Sb2DBHr9qBZKjgnQ7tl8/edit?tab=t.0#heading=h.iicwv6vi9ecb
+- Only read installation instructions, dont bother with the rest of the document: https://docs.google.com/document/d/1fyIBcSlbYNipWNURXOMUQL0Sb2DBHr9qBZKjgnQ7tl8/edit?tab=t.0#heading=h.iicwv6vi9ecb
 
-**Agent use‑case examples**
+**Optional: Agent use‑case examples from Nate B Jones**
 - Skim for inspiration:  
   https://docs.google.com/document/d/1iUntmg8Wx_Zx0UJm_JZ2JKLWW-rn76wJwNc6wUnFhiM/edit?tab=t.0#heading=h.fscq0ovl563v
-
-**Using Claude for documents**
-- Spreadsheets, PowerPoints, Word docs:  
-  https://natesnewsletter.substack.com/p/finally-ai-can-do-excel-and-powerpointget
-
 ---
 
 ## Understanding Claude Code
