@@ -1,4 +1,4 @@
-# Claude Code, CLIs, and GitHub — Practical Notes
+# Tihana's Journey - AI Pipeline Develeopment — Practical Notes
 
 ## Introduction
 
@@ -19,12 +19,12 @@ It is intended as a living reference rather than a step‑by‑step tutorial.
 
 ## Understanding Claude Code
 
-**Core concepts**
+**Some core concepts** - Helpful entry point to understand shift in workflow appraoch
 - Videos:
   - https://www.youtube.com/watch?v=JC2dR2RHcEM&t=7s
   - https://www.youtube.com/watch?v=rfDvkSkelhg&t=7s
 
-**Full workflow walkthrough**
+**Full workflow walkthrough** -  To get familiar with the enviroment. How it looks, explicit steps etc.
 - Video: https://www.youtube.com/watch?v=32xfY8ct6Qw&t=1871s  
 - Support document:  
   https://aiadvantage.notion.site/Claude-Code-Ultimate-Starter-Kit-25a6426aaf6980ce8a37f19ce2f4a3be
@@ -33,40 +33,26 @@ It is intended as a living reference rather than a step‑by‑step tutorial.
 
 ## MCP Servers
 
-**Context7**
-- Purpose: Pulls up‑to‑date official documentation into Claude Code.
-- Recommendation: Use Ref if budget allows (saves context window).
-- Links:
-  - https://github.com/upstash/context7
-  - https://ref.tools/mcp
-  - https://github.com/ref-tools/ref-tools-mcp
-
 **Playwright MCP**
 - Allows the terminal to use the web natively for testing web apps.
 - https://github.com/microsoft/playwright-mcp
 
-**Zen MCP**
-- Enables calling multiple LLM APIs within the same chat.
-- https://github.com/BeehiveInnovations/zen-mcp-server
-
 **Multi‑model workflows**
-- Run the same task across multiple LLMs.
+- Run each section of a pipeline the best LLM Model for its job.
 - Hand off results to a sub‑agent for evaluation and merging.
-- Example: Deep research + social search + general web search, merged by Claude.
+- Example: Deep research (Chatgpt) + social search (Grok) + general web search (Perplexity), merged by Claude.
 
 ---
 
 ## Practical Tips
 
-- Thinking budget phrases (increasing):
+- CLaude Code thinking tuning (increasing):
   - “think” → “think hard” → “think harder” → “ultrathink”  
   Note: *ultrathink often over‑thinks and degrades output quality.*
 
-- Use **“proactive”** for MCP servers or sub‑agents that should run automatically.
-
 ---
 
-## GitHub Repositories
+## GitHub
 
 Creating a GitHub repository gives you:
 - Versioned file storage
