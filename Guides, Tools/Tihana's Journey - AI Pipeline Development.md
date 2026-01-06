@@ -2,62 +2,79 @@
 
 ## Introduction
 
-This document consolidates resources, notes, and practical guidance around **Claude Code**, **CLIs**, **MCP servers**, **HumanLayer**, and **Git/GitHub** workflows.  
+This document consolidates resources, notes, and practical guidance around working with LLMs to create high grade workflows and outpouts.
 It is intended as a living reference rather than a step‑by‑step tutorial.
 
 ---
 
 ## Getting Started with Claude Code
 
-**Installation**
+### Installation
 - Only read installation instructions, dont bother with the rest of the document: https://docs.google.com/document/d/1fyIBcSlbYNipWNURXOMUQL0Sb2DBHr9qBZKjgnQ7tl8/edit?tab=t.0#heading=h.iicwv6vi9ecb
 
-**Optional: Agent use‑case examples from Nate B Jones**
+### Optional: Agent use‑case examples from Nate B Jones
 - Skim for inspiration:  
   https://docs.google.com/document/d/1iUntmg8Wx_Zx0UJm_JZ2JKLWW-rn76wJwNc6wUnFhiM/edit?tab=t.0#heading=h.fscq0ovl563v
 ---
 
-## Understanding Claude Code
+## Entry level Mental Models for Claude Code and Agents
 
-**Concepts** - 
-- Helpful entry points to understand shift in workflow approach:
+### Concepts 
+#### Entry points - To understand shift in workflow approach:
   - https://www.youtube.com/watch?v=JC2dR2RHcEM&t=7s
   - https://www.youtube.com/watch?v=rfDvkSkelhg&t=7s
 
-Agents
+#### Agents
 - Main Claude/Codex terminal = main agent.
 - Sub‑agents:
   - Have separate context windows.
   - Pass *results only* (handoffs), not full reasoning traces.
   - Enable parallelism, chaining, and evaluation/merging steps.
+ 
+#### Multi‑model workflows
+- Run each section of a pipeline the best LLM Model for its job.
+- Hand off results to a sub‑agent for evaluation and merging.
+- Example: Deep research (Chatgpt) + social search (Grok) + general web search (Perplexity), merged by Claude.
 
 Think of sub‑agents as **additional context windows** you can orchestrate.
 
-**Full workflow walkthrough** -  To get familiar with the enviroment. How it looks, explicit steps etc.
+### Workflow basics -  To get familiar with the enviroment. How it looks, explicit steps etc.
 - Video: https://www.youtube.com/watch?v=32xfY8ct6Qw&t=1871s  
 - Support document:  
   https://aiadvantage.notion.site/Claude-Code-Ultimate-Starter-Kit-25a6426aaf6980ce8a37f19ce2f4a3be
 
 ---
 
-## MCP Servers
+## Mental Model for working with LLMs
 
-**Playwright MCP**
-- Allows the terminal to use the web natively for testing web apps.
-- https://github.com/microsoft/playwright-mcp
+### High‑quality podcast
+- https://youtube.com/playlist?list=PLi60mUelRAbFqfgymVfZttlkIyt0XHZjt&si=kllhT6YvfAdNP1gv
+- Focus: LLM limitations, best practices, Workflow Ideas
+- Dex, one of the host, develops the wrapper **HumanLayer** and IDE **Codelayer**.
 
-**Multi‑model workflows**
-- Run each section of a pipeline the best LLM Model for its job.
-- Hand off results to a sub‑agent for evaluation and merging.
-- Example: Deep research (Chatgpt) + social search (Grok) + general web search (Perplexity), merged by Claude.
+### Mandatory episodes - Watch episodes with the visuals, dont only listen to - Conceptual level of Humanlayer and Codelayer workflow
+- Context Engineering: https://www.youtube.com/watch?v=42AzKZRNhsk
+- Claude for non‑coding tasks: https://youtu.be/NJcph4j9sNg
 
 ---
 
-## Practical Tips
+## Tools & Tips
 
-- CLaude Code thinking tuning (increasing):
+### Claude Code
+
+#### Thinking tuning (increasing):
   - “think” → “think hard” → “think harder” → “ultrathink”  
   Note: *ultrathink often over‑thinks and degrades output quality.*
+
+### MCP Servers
+
+#### Playwright MCP
+- Allows the terminal to use the web natively for testing web apps.
+- https://github.com/microsoft/playwright-mcp
+
+### HumanLayer/ Codelayer
+- Installation: https://www.humanlayer.dev/docs/introduction
+- Understanding the step by step system specifics like commands, agents and workflows: "Use a prompt like /research_codebase I want to understand how to set up and use the HumanLayer system based on information you can find in this repo.  Create a setup guide for me. That will get you pretty far."
 
 ---
 
@@ -69,37 +86,9 @@ A GitHub repository gives you:
 - Ability to branch, revert, and experiment safely
 - Private or public repositories
 
-Effectively, GitHub becomes a high‑efficiency file management system for all CLI‑driven work.
+Effectively, GitHub is a high‑efficiency collaborative file management system. 
 
 See the CLI + Git/GitHub guide linked below.
-
----
-
-## Intermediary / Advanced Material
-
-**High‑quality podcast & philosophy**
-- Focus: Claude Code limitations, best practices, context engineering.
-- One host develops **HumanLayer**.
-
-**Recommended episodes**
-- Context Engineering: https://www.youtube.com/watch?v=42AzKZRNhsk
-- Claude for non‑coding tasks: https://youtu.be/NJcph4j9sNg
-- HumanLayer background ("Hear from Founders"):  
-  https://www.ycombinator.com/companies/humanlayer
-
-**Optional**
-- Vision models + PDFs: https://youtu.be/sqJrl09dDmI
-- Model comparison: https://youtu.be/OawyQOrlubM
-
----
-
-## Tooling Add‑Ons
-
-**HumanLayer**
-- Installation: read all READMEs carefully.
-- Sub‑agents and commands often replace “skills” for coding.
-
-
 
 ---
 
@@ -112,8 +101,8 @@ Guide written by the author:
 
 ---
 
-## If You Have Extra Time
+## If You Have Extra Time and are interested in further exploration
 
-**Personal AI systems**
+### Personal AI systems
 - Video: https://www.youtube.com/watch?v=Le0DLrn7ta0&t=1190s
 - Blog post: https://danielmiessler.com/blog/personal-ai-infrastructure
