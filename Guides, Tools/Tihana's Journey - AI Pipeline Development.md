@@ -1,4 +1,4 @@
-# Tihana's Journey - AI Pipeline Develeopment
+# Tihana's Journey - AI Pipeline Development
 
 ## Introduction
 
