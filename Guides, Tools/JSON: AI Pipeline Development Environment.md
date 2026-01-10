@@ -63,7 +63,7 @@
         "lane": null,
         "group_id": "grp_main_stack",
         "position": { "x": 140, "y": 160 },
-        "size": { "width": 1140, "height": 130 },
+        "size": { "width": 1140, "height": 150 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif" }
       },
@@ -73,8 +73,8 @@
         "role": "process",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 140, "y": 300 },
-        "size": { "width": 1140, "height": 140 },
+        "position": { "x": 140, "y": 320 },
+        "size": { "width": 1140, "height": 150 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif" }
       },
@@ -84,7 +84,7 @@
         "role": "process",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 140, "y": 450 },
+        "position": { "x": 140, "y": 480 },
         "size": { "width": 1140, "height": 170 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#F97316" },
         "data": { "font_family": "sans-serif", "emphasis": "highlight_border_orange" }
@@ -95,7 +95,7 @@
         "role": "process",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 140, "y": 630 },
+        "position": { "x": 140, "y": 660 },
         "size": { "width": 1140, "height": 150 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif" }
@@ -106,8 +106,8 @@
         "role": "process",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 140, "y": 790 },
-        "size": { "width": 1140, "height": 130 },
+        "position": { "x": 140, "y": 820 },
+        "size": { "width": 1140, "height": 150 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif" }
       },
@@ -117,8 +117,8 @@
         "role": "process",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 140, "y": 930 },
-        "size": { "width": 1140, "height": 120 },
+        "position": { "x": 140, "y": 980 },
+        "size": { "width": 1140, "height": 150 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif" }
       },
@@ -150,7 +150,7 @@
         "role": "note",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 980, "y": 560 },
+        "position": { "x": 980, "y": 395 },
         "size": { "width": 260, "height": 40 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif", "text_align": "center" }
@@ -161,7 +161,7 @@
         "role": "note",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 980, "y": 510 },
+        "position": { "x": 980, "y": 565 },
         "size": { "width": 260, "height": 40 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#F97316" },
         "data": { "font_family": "sans-serif", "text_align": "center" }
@@ -172,7 +172,7 @@
         "role": "note",
         "lane": null,
         "group_id": "grp_main_stack",
-        "position": { "x": 980, "y": 350 },
+        "position": { "x": 980, "y": 735 },
         "size": { "width": 260, "height": 40 },
         "style": { "shape": "rectangle", "fill_color": "#FFFFFF", "border_color": "#111827" },
         "data": { "font_family": "sans-serif", "text_align": "center" }
