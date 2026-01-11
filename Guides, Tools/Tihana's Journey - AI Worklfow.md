@@ -128,8 +128,6 @@ Its slightly messy, Nano Banana and I werent vibing so well.
 
 ![AI Pipeline Development Environment](https://raw.githubusercontent.com/xapids/LLM/main/Guides%2C%20Tools/Infographic%3A%20AI%20Pipeline%20Development%20Environment.jpeg)
 
-
-
 ---
 
 ## Extras
