@@ -110,6 +110,8 @@ GitHub is a high‑efficiency collaborative file management environment.
 
 GitHub has great documentation. Read through it first: https://docs.github.com/en
 
+When creating repos, think of name carefully. Changing the name later has very tedious side-affects. For folders and files too, but drastcially less.
+
 ## CLIs + GitHub Guide
 - Guide written by me - `/LLM CLI + Git, Github Guide.md`
 - Explains ONLY how LLM CLIs and Git/GitHub work together - This is NOT a guide on how GitHub itself works. It does NOT replace a guide specificaly for how GitHub works. 
